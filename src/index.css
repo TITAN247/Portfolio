@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  background: #0C0C0C;
+  font-family: 'Kanit', sans-serif;
+}
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-heading-gold {
+  background: linear-gradient(
+    160deg,
+    #fff8e7 0%,
+    #f5d48a 25%,
+    #d4a030 55%,
+    #8b5e10 85%,
+    #c8870a 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 24px rgba(212,160,48,0.35));
+}
+
+/* ── Marquee card animations ── */
+.marquee-card {
+  cursor: pointer;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.marquee-card:hover {
+  box-shadow: 0 0 35px rgba(102, 126, 234, 0.25), 0 10px 40px rgba(0, 0, 0, 0.4);
+  transform: scale(1.03);
+  z-index: 10;
+}
+
+.marquee-card-shine {
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.04) 42%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.04) 58%,
+    transparent 65%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  animation: marquee-shine 6s ease-in-out infinite;
+}
+
+@keyframes marquee-shine {
+  0%, 70% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -50% 0;
+  }
+}
+
