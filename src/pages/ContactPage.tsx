@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import FadeIn from '../components/FadeIn';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
@@ -75,8 +74,7 @@ const ContactPage: React.FC = () => {
 
   return (
     <>
-      <Navbar />
-      <main className="flex-1 w-full bg-[#0C0C0C] text-[#D7E2EA] px-6 md:px-12 py-16 md:py-24 max-w-7xl mx-auto">
+      <main className="flex-1 w-full bg-[#0C0C0C] text-[#D7E2EA] px-6 md:px-12 pt-32 pb-16 md:pt-36 md:pb-24 max-w-7xl mx-auto">
         {/* Title Section */}
         <div className="flex flex-col items-center text-center gap-6 mb-16 md:mb-24">
           <FadeIn delay={0.1} y={30}>

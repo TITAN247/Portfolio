@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import FadeIn from './FadeIn';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { name: 'About', path: '/#about' },
@@ -16,6 +16,21 @@ const navLinks = [
 const Navbar: React.FC = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Detect scroll to apply glassmorphism backdrop
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname, location.hash]);
 
   const isActive = (path: string) => {
     const [pathPart, hashPart] = path.split('#');
@@ -23,7 +38,6 @@ const Navbar: React.FC = () => {
     if (hashPart) {
       return isSamePath && location.hash === `#${hashPart}`;
     }
-    // For '/' without hash, we match if pathname is '/' and hash is empty
     if (pathPart === '/') {
       return isSamePath && !location.hash;
     }
@@ -32,8 +46,7 @@ const Navbar: React.FC = () => {
 
   const handleLinkClick = (path: string) => {
     setIsOpen(false);
-    
-    // If we're already on target path with hash, scroll to it manually
+
     const [pathPart, hashPart] = path.split('#');
     if (location.pathname === pathPart && hashPart) {
       const el = document.getElementById(hashPart);
@@ -46,54 +59,100 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <FadeIn delay={0} y={-20} className="w-full relative z-50">
-      <header className="w-full px-6 md:px-10 pt-6 md:pt-8">
-        <div className="flex justify-between items-center max-w-7xl mx-auto border-b border-[#D7E2EA]/10 pb-4">
-          {/* Logo / Brand Name */}
-          <Link
-            to="/"
-            onClick={() => handleLinkClick('/')}
-            className="text-[#D7E2EA] font-black tracking-widest text-lg md:text-xl uppercase hover:opacity-85 transition-opacity"
-            style={{ fontFamily: "'Cinzel', serif" }}
-          >
-            Shivansh
-          </Link>
+    <motion.header
+      initial={{ opacity: 0, y: -24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        transition: 'background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease',
+        background: scrolled
+          ? 'rgba(12, 12, 12, 0.82)'
+          : 'transparent',
+        backdropFilter: scrolled ? 'blur(18px) saturate(1.4)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(18px) saturate(1.4)' : 'none',
+        borderBottom: scrolled
+          ? '1px solid rgba(215, 226, 234, 0.08)'
+          : '1px solid transparent',
+        boxShadow: scrolled
+          ? '0 4px 32px rgba(0,0,0,0.45)'
+          : 'none',
+        paddingTop: scrolled ? '12px' : '24px',
+        paddingBottom: scrolled ? '12px' : '0px',
+        paddingLeft: '24px',
+        paddingRight: '24px',
+      }}
+    >
+      <div className="flex justify-between items-center max-w-7xl mx-auto">
+        {/* Logo */}
+        <Link
+          to="/"
+          onClick={() => handleLinkClick('/')}
+          className="text-[#D7E2EA] font-black tracking-widest text-lg md:text-xl uppercase hover:opacity-80 transition-opacity"
+          style={{ fontFamily: "'Cinzel', serif" }}
+        >
+          Shivansh
+        </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-            {navLinks.map((link) => {
-              const active = isActive(link.path);
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => handleLinkClick(link.path)}
-                  className={`
-                    text-xs xl:text-sm uppercase tracking-wider font-medium
-                    pb-1 transition-all duration-200
-                    hover:opacity-100
-                    ${active ? 'text-[#D7E2EA] opacity-100 border-b border-[#D7E2EA]' : 'text-[#D7E2EA] opacity-60'}
-                  `}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          {navLinks.map((link) => {
+            const active = isActive(link.path);
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => handleLinkClick(link.path)}
+                className={`
+                  text-xs xl:text-sm uppercase tracking-wider font-medium
+                  pb-1 transition-all duration-200 hover:opacity-100
+                  ${active
+                    ? 'text-[#D7E2EA] opacity-100 border-b border-[#D7E2EA]'
+                    : 'text-[#D7E2EA] opacity-55 hover:opacity-90'
+                  }
+                `}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-[#D7E2EA] hover:opacity-75 transition-opacity focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden text-[#D7E2EA] hover:opacity-75 transition-opacity focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
-        {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
+      <AnimatePresence>
         {isOpen && (
-          <div className="absolute top-full left-0 w-full bg-[#0C0C0C]/95 backdrop-blur-md border-b border-[#D7E2EA]/15 shadow-xl transition-all duration-300 lg:hidden">
+          <motion.div
+            key="mobile-drawer"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.28, ease: 'easeInOut' }}
+            style={{
+              overflow: 'hidden',
+              background: 'rgba(12,12,12,0.96)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              borderTop: '1px solid rgba(215,226,234,0.08)',
+              borderBottom: '1px solid rgba(215,226,234,0.08)',
+              marginTop: '12px',
+              marginLeft: '-24px',
+              marginRight: '-24px',
+            }}
+          >
             <nav className="flex flex-col px-8 py-6 gap-5">
               {navLinks.map((link) => {
                 const active = isActive(link.path);
@@ -105,7 +164,10 @@ const Navbar: React.FC = () => {
                     className={`
                       text-sm uppercase tracking-widest font-semibold py-1
                       transition-all duration-200
-                      ${active ? 'text-[#D7E2EA] opacity-100 pl-2 border-l-2 border-[#D7E2EA]' : 'text-[#D7E2EA] opacity-60'}
+                      ${active
+                        ? 'text-[#D7E2EA] opacity-100 pl-3 border-l-2 border-[#D7E2EA]'
+                        : 'text-[#D7E2EA] opacity-55'
+                      }
                     `}
                   >
                     {link.name}
@@ -113,10 +175,10 @@ const Navbar: React.FC = () => {
                 );
               })}
             </nav>
-          </div>
+          </motion.div>
         )}
-      </header>
-    </FadeIn>
+      </AnimatePresence>
+    </motion.header>
   );
 };
 
