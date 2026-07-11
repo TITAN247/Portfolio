@@ -92,10 +92,25 @@ const Navbar: React.FC = () => {
         <Link
           to="/"
           onClick={() => handleLinkClick('/')}
-          className="text-[#D7E2EA] font-black tracking-widest text-lg md:text-xl uppercase hover:opacity-80 transition-opacity"
-          style={{ fontFamily: "'Cinzel', serif" }}
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
         >
-          Shivansh
+          <img
+            src="/logo.png"
+            alt="Shivansh logo"
+            style={{
+              width: '36px',
+              height: '36px',
+              borderRadius: '50%',
+              objectFit: 'cover',
+              boxShadow: '0 0 10px rgba(215,226,234,0.25)',
+            }}
+          />
+          <span
+            className="text-[#D7E2EA] font-black tracking-widest text-lg md:text-xl uppercase"
+            style={{ fontFamily: "'Cinzel', serif" }}
+          >
+            Shivansh
+          </span>
         </Link>
 
         {/* Desktop Nav */}
