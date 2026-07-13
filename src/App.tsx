@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import HomePage from './pages/HomePage';
 import ResumePage from './pages/ResumePage';
 import CertificationsPage from './pages/CertificationsPage';
@@ -7,8 +8,11 @@ import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 import Navbar from './components/Navbar';
 import Preloader from './components/Preloader';
+import PageTransition from './components/PageTransition';
 
 function App() {
+  const location = useLocation();
+
   // Show preloader only once per browser session
   const [loading, setLoading] = useState(() => {
     return !sessionStorage.getItem('preloader_done');
@@ -37,7 +41,7 @@ function App() {
       {loading && <Preloader onComplete={handlePreloaderComplete} />}
 
       <div
-        className="font-kanit flex flex-col min-h-screen"
+        className="font-kanit flex flex-col min-h-screen relative"
         style={{
           background: '#0C0C0C',
           overflowX: 'clip',
@@ -47,13 +51,15 @@ function App() {
         {/* Global fixed Navbar */}
         <Navbar />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/resume" element={<ResumePage />} />
-          <Route path="/certifications" element={<CertificationsPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
+            <Route path="/resume" element={<PageTransition><ResumePage /></PageTransition>} />
+            <Route path="/certifications" element={<PageTransition><CertificationsPage /></PageTransition>} />
+            <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
+            <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+          </Routes>
+        </AnimatePresence>
       </div>
     </>
   );

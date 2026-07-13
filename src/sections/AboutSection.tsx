@@ -2,6 +2,7 @@ import React from 'react';
 import FadeIn from '../components/FadeIn';
 import AnimatedText from '../components/AnimatedText';
 import ContactButton from '../components/ContactButton';
+import Magnetic from '../components/Magnetic';
 
 const AboutSection: React.FC = () => {
   return (
@@ -111,7 +112,7 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* Name + title badge below photo */}
-            <div className="flex flex-col items-center gap-2 text-center">
+            <div className="flex flex-col items-center gap-2 text-center mt-6">
               <h3
                 style={{
                   fontFamily: "'Cinzel', serif",
@@ -150,9 +151,12 @@ const AboutSection: React.FC = () => {
               style={{ fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}
             />
 
-            <ContactButton id="about-contact-button" />
+            <Magnetic>
+              <ContactButton id="about-contact-button" />
+            </Magnetic>
           </div>
         </div>
+
 
       </div>
     </section>

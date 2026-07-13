@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
 import FadeIn from './FadeIn';
-import ContactButton from './ContactButton';
+
 
 const MY_EMAIL = 'shivansh0962@gmail.com';
 const MY_GITHUB = 'https://github.com/TITAN247';
@@ -76,10 +76,7 @@ const Footer: React.FC = () => {
           </h2>
         </FadeIn>
 
-        {/* Contact Button */}
-        <FadeIn delay={0.2} y={30}>
-          <ContactButton id="footer-contact-button" />
-        </FadeIn>
+
 
         {/* Social Links & Copyright */}
         <div className="w-full flex flex-col items-center gap-6 mt-6">

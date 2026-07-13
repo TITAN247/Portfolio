@@ -13,6 +13,7 @@ html, body, #root {
   font-family: 'Kanit', sans-serif;
 }
 
+
 .hero-heading {
   background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
   -webkit-background-clip: text;
@@ -68,5 +69,113 @@ html, body, #root {
   100% {
     background-position: -50% 0;
   }
+}
+
+/* ── Contact form animations ── */
+
+/* Paper airplane flight: launches from button position, flies diagonally up-right */
+@keyframes airplane-fly {
+  0% {
+    transform: translate(0, 0) rotate(-10deg) scale(1);
+    opacity: 1;
+  }
+  15% {
+    transform: translate(40px, -30px) rotate(-25deg) scale(1.1);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(260px, -200px) rotate(-35deg) scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(520px, -400px) rotate(-40deg) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* Trail particles that fade behind the airplane */
+@keyframes trail-fade {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}
+
+/* Shake animation for failed send */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15%       { transform: translateX(-8px); }
+  30%       { transform: translateX(8px); }
+  45%       { transform: translateX(-6px); }
+  60%       { transform: translateX(6px); }
+  75%       { transform: translateX(-3px); }
+  90%       { transform: translateX(3px); }
+}
+
+/* Toast slide in from bottom-right */
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Toast slide out to the right */
+@keyframes toast-slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* Success checkmark draw animation */
+@keyframes check-draw {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Scale pop for success icon circle */
+@keyframes scale-pop {
+  0%   { transform: scale(0.3); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Gentle glow pulse while loading */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 12px 2px rgba(232,168,48,0.25); }
+  50%       { box-shadow: 0 0 28px 8px rgba(232,168,48,0.55); }
+}
+
+.btn-glow-loading {
+  animation: glow-pulse 1.4s ease-in-out infinite;
+}
+
+.airplane-flying {
+  animation: airplane-fly 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.btn-shake {
+  animation: shake 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.toast-enter {
+  animation: toast-slide-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.toast-exit {
+  animation: toast-slide-out 0.3s ease-in forwards;
 }
 

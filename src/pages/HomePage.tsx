@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import HeroSection from '../sections/HeroSection';
-import MarqueeSection from '../sections/MarqueeSection';
+// import MarqueeSection from '../sections/MarqueeSection'; // Commented out per user request
 import AboutSection from '../sections/AboutSection';
+import SkillsSection from '../sections/SkillsSection';
 import ServicesSection from '../sections/ServicesSection';
 import ProjectsSection from '../sections/ProjectsSection';
 import Footer from '../components/Footer';
@@ -35,8 +36,9 @@ const HomePage: React.FC = () => {
   return (
     <>
       <HeroSection />
-      <MarqueeSection />
+      {/* <MarqueeSection /> — commented out per user request */}
       <AboutSection />
+      <SkillsSection />
       <ServicesSection />
       <ProjectsSection />
       <Footer />
