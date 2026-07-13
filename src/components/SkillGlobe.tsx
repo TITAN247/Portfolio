@@ -21,8 +21,6 @@ const SkillGlobe: React.FC = () => {
     let frameId: number;
 
     let phi = 0;
-    let theta = 0;
-    
     // Distribute points on sphere using Fibonacci spiral
     items.forEach((item, i) => {
       const y = 1 - (i / (total - 1)) * 2;

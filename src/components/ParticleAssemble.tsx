@@ -52,7 +52,7 @@ const ParticleAssemble: React.FC<ParticleAssembleProps> = ({
       filter: 'blur(0px)',
       rotate: 0,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         damping: 15,
         stiffness: 80,
         mass: 1,

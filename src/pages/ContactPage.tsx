@@ -1131,7 +1131,6 @@ const ContactPage: React.FC = () => {
                         placeholder="Tell me about your project or idea..."
                         value={fields.message}
                         onChange={handleChange}
-                        onBlur={handleBlur}
                         onFocus={() => setFocusedField('message')}
                         onBlur={(e) => { setFocusedField(null); handleBlur(e); }}
                         disabled={isSending}

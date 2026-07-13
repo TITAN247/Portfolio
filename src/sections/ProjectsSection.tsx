@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import FadeIn from '../components/FadeIn';
 import SpotlightCard from '../components/SpotlightCard';
 import LiveProjectButton from '../components/LiveProjectButton';
@@ -155,11 +155,11 @@ const projects: Project[] = [
     number: '09',
     category: 'Frontend · React · Tailwind',
     name: 'Personal Portfolio',
-    description: 'My personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion. Features a modern dark-mode aesthetic, glassmorphism design, interactive animations, and EmailJS integration for direct contact.',
+    description: 'A comprehensive digital showcase of my professional journey. It contains an interactive gallery of my best projects spanning Data Analytics, AI, and Full-Stack Software Development, along with my core skills, certifications, and ways to get in touch with me.',
     liveUrl: '/',
     githubUrl: 'https://github.com/TITAN247/Portfolio',
     images: [
-      img('/shivansh-portrait.jpg'),
+      img('/projects/portfoliothumbnail.png'),
     ],
   },
 ];
