@@ -22,7 +22,7 @@ interface WebProject extends BaseProject {
 
 interface DataProject extends BaseProject {
   type: 'data';
-  downloadUrl: string;
+  downloadUrl?: string;
   images: string[];
 }
 
@@ -130,6 +130,7 @@ const projects: Project[] = [
     downloadUrl: '/projects/megamartscreenshots/MegaMArt.zip',
     githubUrl: 'https://github.com/TITAN247/MegaMart-Retail-Analytics.git',
     images: [
+      img('/projects/megamartscreenshots/ChatGPT Image Jul 14, 2026, 10_47_56 PM.png'),
       img('/projects/megamartscreenshots/Screenshot 2026-07-10 114747.png'),
       img('/projects/megamartscreenshots/Screenshot 2026-07-10 114800.png'),
       img('/projects/megamartscreenshots/Screenshot 2026-07-10 114811.png'),
@@ -145,14 +146,30 @@ const projects: Project[] = [
     downloadUrl: '/projects/bank/Bank.zip',
     githubUrl: 'https://github.com/TITAN247/Personal-Finance-Manager.git',
     images: [
+      img('/projects/bank/ChatGPT Image Jul 14, 2026, 10_51_58 PM.png'),
       img('/projects/bank/Screenshot 2026-07-09 212222.png'),
       img('/projects/bank/Screenshot 2026-07-09 212320.png'),
       img('/projects/bank/Screenshot 2026-07-09 212356.png'),
     ],
   },
   {
-    type: 'web',
+    type: 'data',
     number: '09',
+    category: 'Data Analytics · Python · Pandas',
+    name: 'SkyInsight – Airline Customer Satisfaction Analytics',
+    description: 'Developed a comprehensive data analysis project using Python and Pandas to analyze airline customer satisfaction and operational performance. The project involved data cleaning, handling missing values and duplicates, exploratory data analysis (EDA), customer segmentation, service quality evaluation, flight delay analysis, and passenger behavior insights. Advanced Pandas functions such as groupby(), agg(), apply(), query(), merge(), join(), concat(), where(), and mask() were used to generate meaningful business insights. The project concludes with a detailed business report highlighting customer satisfaction trends, service performance, and recommendations to improve airline operations and passenger experience.',
+    githubUrl: 'https://github.com/TITAN247/Airline-Customer-Satisfaction-Analytics.git',
+    images: [
+      img('/projects/airlinedataset/ChatGPT Image Jul 13, 2026, 10_48_37 PM.png'),
+      img('/projects/airlinedataset/Screenshot 2026-07-13 222344.png'),
+      img('/projects/airlinedataset/Screenshot 2026-07-13 222400.png'),
+      img('/projects/airlinedataset/Screenshot 2026-07-13 222409.png'),
+      img('/projects/airlinedataset/Screenshot 2026-07-13 222419.png'),
+    ],
+  },
+  {
+    type: 'web',
+    number: '10',
     category: 'Frontend · React · Tailwind',
     name: 'Personal Portfolio',
     description: 'A comprehensive digital showcase of my professional journey. It contains an interactive gallery of my best projects spanning Data Analytics, AI, and Full-Stack Software Development, along with my core skills, certifications, and ways to get in touch with me.',
@@ -411,7 +428,7 @@ const ProjectCard: React.FC<{ project: Project; currentIdx: number; className?: 
             href={project.liveUrl}
           />
         )}
-        {project.type === 'data' && (
+        {project.type === 'data' && project.downloadUrl && (
           <LiveProjectButton
             id={`download-data-${currentIdx}`}
             text="Download Report/Code"
