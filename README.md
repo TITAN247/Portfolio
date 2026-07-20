@@ -1,73 +1,166 @@
-# React + TypeScript + Vite
+# 🌐 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the repository of my personal portfolio website.
 
-Currently, two official plugins are available:
+This portfolio reflects my journey as a **Data Analyst, AI Enthusiast, and Full-Stack Developer**, showcasing my projects, technical skills, certifications, and professional experience. It is designed with a modern user interface, responsive layout, smooth animations, and SEO best practices to provide an engaging experience across all devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔗 Live Website
 
-## React Compiler
+**Portfolio:** https://shivansh-29.in
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 👨‍💻 About
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+I'm **Shivansh Chaurasiya**, an aspiring Data Analyst and Full-Stack Developer passionate about solving real-world problems using **Data Analytics, Artificial Intelligence, and Modern Web Technologies**.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+I enjoy building applications that combine clean design, meaningful user experiences, and data-driven solutions.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ✨ Features
+
+- Modern & Responsive UI
+- Smooth Animations and Transitions
+- Dark Theme Design
+- Professional Project Showcase
+- Resume Section
+- Certifications
+- Interactive Contact Form
+- SEO Optimized
+- Fast Performance
+- Mobile Friendly
+
+---
+
+## 🚀 Featured Projects
+
+### 🤖 JanSetuAI
+AI-powered civic grievance management platform with complaint classification, intelligent routing, image analysis, and real-time complaint tracking.
+
+### ✈️ Airline Customer Satisfaction Analytics
+Comprehensive data analytics project focused on customer satisfaction, airline service quality analysis, visualization, and actionable business insights.
+
+### 📊 MegaMart Sales Analytics
+Retail sales analytics project developed using Python, NumPy, Pandas, and visualization techniques to uncover business insights.
+
+### 🎓 LetAsk
+An AI-powered mentorship platform connecting students and professionals through intelligent mentor matching and personalized guidance.
+
+### 📚 STUMDieY
+A collaborative learning platform providing study materials, previous year questions, notes, and academic resources for students.
+
+### 🛕 Kashi – The Unexplored City
+A digital heritage platform exploring the hidden temples, ghats, culture, traditions, and historical significance of Kashi.
+
+---
+
+## 🛠️ Tech Stack
+
+### Languages
+- Python
+- JavaScript
+- SQL
+- Java
+- C++
+
+### Data Analytics
+- NumPy
+- Pandas
+- Matplotlib
+- Power BI
+- Tableau
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Tailwind CSS
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Firebase
+
+### Tools
+- Git
+- GitHub
+- VS Code
+- Docker
+- AWS
+
+---
+
+## 📂 Repository Structure
+
+```text
+Portfolio/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   ├── hooks/
+│   └── utils/
+├── package.json
+├── README.md
+└── ...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🎯 Current Focus
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Data Analytics
+- Machine Learning
+- Artificial Intelligence
+- Full-Stack Development
+- Open Source Contributions
+- Building Real-World Projects
+
+---
+
+## 📈 Future Improvements
+
+- Technical Blog
+- AI Chat Assistant
+- Interactive Analytics Dashboard
+- Enhanced Accessibility
+- Performance Optimizations
+- Additional Case Studies
+
+---
+
+## 📫 Connect With Me
+
+🌐 **Portfolio:**  
+https://shivansh-29.in
+
+💼 **LinkedIn:**  
+https://www.linkedin.com/in/shivansh-chaurasiya-2345722a9/
+
+🐙 **GitHub:**  
+https://github.com/TITAN247
+
+📧 **Email:**  
+shivansh0962@gmail.com
+
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub. Your support motivates me to continue building impactful projects and sharing my work with the community.
+
+---
+
+<div align="center">
+
+### Thank you for visiting!
+
+*"Turning Data into Insights and Ideas into Intelligent Solutions."*
+
+**Made with ❤️ by Shivansh Chaurasiya**
+
+</div>
