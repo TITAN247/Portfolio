@@ -51,14 +51,7 @@ const HeroSection: React.FC = () => {
               </div>
             </ParticleAssemble>
             
-            <h1 className="hero-heading font-black text-transparent bg-clip-text bg-gradient-to-br from-[#D7E2EA] to-[#D7E2EA]/50 uppercase leading-[0.9] tracking-tighter"
-                style={{ fontSize: 'clamp(3rem, 12vw, 150px)' }}>
-              <ParticleAssemble text="CREATIVE" delay={1.2} />
-              <br/>
-              <span className="text-[#e8a830]">
-                <ParticleAssemble text="DEVELOPER" delay={1.6} />
-              </span>
-            </h1>
+
           </div>
         </div>
 

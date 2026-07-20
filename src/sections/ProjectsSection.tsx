@@ -179,6 +179,17 @@ const projects: Project[] = [
       img('/projects/portfoliothumbnail.png'),
     ],
   },
+  {
+    type: 'data',
+    number: '11',
+    category: 'Data Analytics · Python · EDA',
+    name: 'Synthetic FIFA Player Performance Analytics',
+    description: 'A comprehensive data analytics project exploring synthetic FIFA player performance data. Built with Python, it utilizes NumPy and Pandas for extensive data manipulation and Exploratory Data Analysis (EDA). The project uncovers deep insights into player attributes, performance metrics, and trends, employing Matplotlib and Seaborn to create advanced, intuitive visualizations that effectively communicate the findings.',
+    githubUrl: 'https://github.com/TITAN247/Synthetic-FIFA-Player-Performance-Analytics.git',
+    images: [
+      img('/projects/fifathumbnail.png'),
+    ],
+  },
 ];
 
 /* ─── Carousel variants ─── */
