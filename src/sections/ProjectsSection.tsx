@@ -188,6 +188,44 @@ const projects: Project[] = [
     githubUrl: 'https://github.com/TITAN247/Synthetic-FIFA-Player-Performance-Analytics.git',
     images: [
       img('/projects/fifathumbnail.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 215644.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 221115.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 221351.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 221446.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 221726.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 221908.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 222000.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 222518.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 222601.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 222639.png'),
+      img('/projects/FIFA/Screenshot 2026-07-19 222717.png'),
+    ],
+  },
+  {
+    type: 'data',
+    number: '12',
+    category: 'Data Analytics · Python · EDA',
+    name: 'Amazon Product Analysis',
+    description: 'Performed Exploratory Data Analysis (EDA) on a real-world Amazon products dataset using Python, Pandas, NumPy, Matplotlib, and Seaborn. Cleaned and preprocessed data, handled missing values and outliers, engineered new features, and created insightful visualizations to uncover trends in pricing, discounts, ratings, and product categories.',
+    githubUrl: 'https://github.com/TITAN247/Amazon-Product-Analysis.git',
+    images: [
+      img('/projects/Amazon/ChatGPT Image Jul 29, 2026, 11_08_01 PM.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230304.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230311.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230319.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230332.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230402.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230415.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230420.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230453.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230501.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230511.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230519.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230528.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230536.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230548.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230609.png'),
+      img('/projects/Amazon/Screenshot 2026-07-29 230620.png'),
     ],
   },
 ];
@@ -289,14 +327,13 @@ const WebImageGrid: React.FC<{ project: WebProject | DataProject }> = ({ project
   return (
     <div className="flex flex-col gap-4 w-full">
       {/* Main Image */}
-      <div className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/5">
+      <div className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/5 flex items-center justify-center">
         <img
           src={project.images[0]}
           alt={`${project.name} primary preview`}
           loading="eager"
           decoding="async"
-          className="w-full object-cover transition-transform duration-700 hover:scale-105 bg-white/5"
-          style={{ height: 'clamp(200px, 30vw, 360px)' }}
+          className="w-full h-auto object-contain transition-transform duration-700 hover:scale-105 bg-white/5"
         />
       </div>
 
@@ -324,17 +361,17 @@ const WebImageGrid: React.FC<{ project: WebProject | DataProject }> = ({ project
             transition={{ duration: 0.4 }}
             className="overflow-hidden"
           >
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-2">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-2 overflow-y-auto pr-2" style={{ maxHeight: '50vh', scrollbarWidth: 'thin' }}>
               {project.images.slice(1).map((src, i) => (
-                <img
-                  key={i}
-                  src={src}
-                  alt={`${project.name} detail preview ${i + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full object-cover rounded-[12px] sm:rounded-[16px] bg-white/5 border border-white/5"
-                  style={{ height: 'clamp(100px, 15vw, 180px)' }}
-                />
+                <div key={i} className="flex items-center justify-center rounded-[12px] sm:rounded-[16px] bg-white/5 border border-white/5 overflow-hidden">
+                  <img
+                    src={src}
+                    alt={`${project.name} detail preview ${i + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
               ))}
             </div>
             <div className="w-full flex justify-start mt-4 mb-2">
@@ -402,79 +439,83 @@ const ProjectCard: React.FC<{ project: Project; currentIdx: number; className?: 
       w-full h-full
       rounded-[32px] sm:rounded-[40px] md:rounded-[48px]
       border-2 border-[#D7E2EA]/10
-      p-4 sm:p-6 md:p-8
-      flex flex-col gap-4 sm:gap-6
       ${className}
     `}
   >
-    {/* Top Row — Number, Category/Name, Button */}
-    <div className="flex items-center justify-between flex-wrap gap-4">
-      <div className="flex items-baseline gap-4 sm:gap-6 flex-wrap">
-        <span
-          className="font-black text-[#D7E2EA] leading-none"
-          style={{ fontSize: 'clamp(2rem, 6vw, 80px)' }}
-        >
-          {project.number}
-        </span>
-        <div className="flex flex-col">
-          <span
-            className="text-[#D7E2EA] font-light uppercase tracking-widest opacity-50"
-            style={{ fontSize: 'clamp(0.65rem, 1.3vw, 0.9rem)' }}
-          >
-            {project.category}
-          </span>
-          <span
-            className="text-[#D7E2EA] font-semibold uppercase tracking-wide"
-            style={{ fontSize: 'clamp(1rem, 2vw, 1.75rem)' }}
-          >
-            {project.name}
-          </span>
+    <div className="flex flex-col md:flex-row gap-6 sm:gap-8 lg:gap-12 items-start p-4 sm:p-6 md:p-8 lg:p-10 w-full h-full">
+      {/* Text content left */}
+      <div className="flex flex-col gap-4 sm:gap-6 w-full md:w-1/2">
+        {/* Top Row — Number, Category/Name */}
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <div className="flex items-baseline gap-4 sm:gap-6 flex-wrap">
+            <span
+              className="font-black text-[#D7E2EA] leading-none"
+              style={{ fontSize: 'clamp(2rem, 6vw, 80px)' }}
+            >
+              {project.number}
+            </span>
+            <div className="flex flex-col">
+              <span
+                className="text-[#D7E2EA] font-light uppercase tracking-widest opacity-50"
+                style={{ fontSize: 'clamp(0.65rem, 1.3vw, 0.9rem)' }}
+              >
+                {project.category}
+              </span>
+              <span
+                className="text-[#D7E2EA] font-semibold uppercase tracking-wide"
+                style={{ fontSize: 'clamp(1rem, 2vw, 1.75rem)' }}
+              >
+                {project.name}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Description */}
+        <div className="flex-grow flex flex-col w-full">
+          <ExpandableText text={project.description} />
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4 items-center pt-2">
+          {project.type === 'web' && (
+            <LiveProjectButton
+              id={`live-project-${currentIdx}`}
+              href={project.liveUrl}
+            />
+          )}
+          {project.type === 'data' && project.downloadUrl && (
+            <LiveProjectButton
+              id={`download-data-${currentIdx}`}
+              text="Download Report/Code"
+              href={project.downloadUrl}
+            />
+          )}
+          {project.type === 'app' && (
+            <LiveProjectButton
+              id={`watch-demo-${currentIdx}`}
+              text="Watch Demo"
+            />
+          )}
+          {project.githubUrl && (
+            <LiveProjectButton
+              id={`github-repo-${currentIdx}`}
+              text="GitHub Repo"
+              href={project.githubUrl}
+              className="border-[#D7E2EA]/40 text-[#D7E2EA] hover:bg-[#D7E2EA]/10 hover:border-[#D7E2EA]"
+            />
+          )}
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-4 items-center">
-        {project.type === 'web' && (
-          <LiveProjectButton
-            id={`live-project-${currentIdx}`}
-            href={project.liveUrl}
-          />
-        )}
-        {project.type === 'data' && project.downloadUrl && (
-          <LiveProjectButton
-            id={`download-data-${currentIdx}`}
-            text="Download Report/Code"
-            href={project.downloadUrl}
-          />
-        )}
-        {project.type === 'app' && (
-          <LiveProjectButton
-            id={`watch-demo-${currentIdx}`}
-            text="Watch Demo"
-          />
-        )}
-        {project.githubUrl && (
-          <LiveProjectButton
-            id={`github-repo-${currentIdx}`}
-            text="GitHub Repo"
-            href={project.githubUrl}
-            className="border-[#D7E2EA]/40 text-[#D7E2EA] hover:bg-[#D7E2EA]/10 hover:border-[#D7E2EA]"
-          />
+      {/* Content area right */}
+      <div className="w-full md:w-1/2 flex items-center justify-center">
+        {(project.type === 'web' || project.type === 'data') ? (
+          <WebImageGrid project={project} />
+        ) : (
+          <AppPlaceholder name={project.name} />
         )}
       </div>
-    </div>
-
-    {/* Description */}
-    <div className="flex-grow flex flex-col w-full">
-      <ExpandableText text={project.description} />
-    </div>
-
-    {/* Content area */}
-    <div className="mt-auto w-full">
-      {(project.type === 'web' || project.type === 'data') ? (
-        <WebImageGrid project={project} />
-      ) : (
-        <AppPlaceholder name={project.name} />
-      )}
     </div>
   </SpotlightCard>
 );
@@ -484,7 +525,7 @@ const ProjectCard: React.FC<{ project: Project; currentIdx: number; className?: 
 const ProjectsSection: React.FC = () => {
   const [[currentSlide, direction], setCurrentSlide] = useState([0, 0]);
 
-  const slideCount = Math.ceil(projects.length / 2);
+  const slideCount = projects.length;
 
   const paginate = (newDir: number) => {
     setCurrentSlide(([prev]) => {
@@ -499,8 +540,7 @@ const ProjectsSection: React.FC = () => {
     setCurrentSlide(([prev]) => [idx, idx > prev ? 1 : -1]);
   };
 
-  const project1 = projects[currentSlide * 2];
-  const project2 = projects[currentSlide * 2 + 1];
+  const project1 = projects[currentSlide];
 
   return (
     <section
@@ -540,9 +580,8 @@ const ProjectsSection: React.FC = () => {
               transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
               className="w-full h-full"
             >
-              <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 w-full h-full items-stretch">
-                <ProjectCard project={project1} currentIdx={currentSlide * 2 + 1} />
-                {project2 && <ProjectCard project={project2} currentIdx={currentSlide * 2 + 2} />}
+              <div className="w-full h-full">
+                <ProjectCard project={project1} currentIdx={currentSlide + 1} />
               </div>
             </motion.div>
           </AnimatePresence>
