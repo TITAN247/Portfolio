@@ -5,6 +5,12 @@ import { Award, ExternalLink, Calendar, ShieldCheck } from 'lucide-react';
 
 const certifications = [
   {
+    title: 'Data Science for Everyone',
+    issuer: 'Reliance Foundation Skilling Academy & Skill India',
+    date: 'Jul 2026',
+    link: '/certificates/certificate_0168d594-ec95-4e4d-a060-2cd5c4fd6aaa.pdf',
+  },
+  {
     title: 'Quantitative Research Job Simulation',
     issuer: 'JPMorgan Chase & Co. (via Forage)',
     date: 'May 2026',

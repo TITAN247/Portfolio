@@ -9,10 +9,16 @@ const experiences: { role: string; company: string; period: string; description:
 
 const education = [
   {
+    degree: 'Master of Computer Applications (MCA) - Data Science',
+    school: 'Chandigarh University',
+    period: '2026 - Present',
+    description: 'Pursuing a postgraduate degree specializing in Data Science.',
+  },
+  {
     degree: 'Bachelor of Computer Applications (BCA)',
     school: 'School Of Management Sciences, Varanasi',
     period: '2023 - 2026',
-    description: 'Pursuing a comprehensive degree in computer applications covering programming, data structures, databases, web technologies, and software development.',
+    description: 'Pursuing a comprehensive degree in computer applications covering programming, data structures, databases, web technologies, and software development. Final Average CGPA: 8.87 / 10',
   },
 ];
 
