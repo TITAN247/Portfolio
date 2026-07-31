@@ -5,6 +5,12 @@ import { Award, ExternalLink, Calendar, ShieldCheck } from 'lucide-react';
 
 const certifications = [
   {
+    title: 'AI DevOps Analyst',
+    issuer: 'NASSCOM & Skill India Digital Hub',
+    date: 'Jul 2026',
+    link: '/certificates/skill.pdf',
+  },
+  {
     title: 'Data Science for Everyone',
     issuer: 'Reliance Foundation Skilling Academy & Skill India',
     date: 'Jul 2026',
